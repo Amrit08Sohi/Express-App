@@ -1,0 +1,15 @@
+version: "1.0"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: express-app
+    restart: unless-stopped
+    ports:
+        - "8000:8000"
+    command: npm run start
+    
+
+
