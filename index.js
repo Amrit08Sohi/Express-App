@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/health", (req,res) => {
-    res.send({status: "Server is up and running"})
+    res.status(200).send({status: "Server is up and running"})
 })
 
 app.listen(8000, () => {
