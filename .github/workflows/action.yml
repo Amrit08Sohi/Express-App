@@ -31,18 +31,18 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Check whether railway token is coming or not
-        run: echo ${{ secrets.RAILWAY_TOKEN }}
+      # - name: Check whether railway token is coming or not
+      #   run: echo ${{ secrets.RAILWAY_TOKEN }}
 
-      - name: Debug Railway CLI
-        run: railway status
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      # - name: Debug Railway CLI
+      #   run: railway status
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
-      - name: Check Railway Authentication
-        run: railway whoami
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      # - name: Check Railway Authentication
+      #   run: railway whoami
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy to Railway
         run: railway up --service express-app
