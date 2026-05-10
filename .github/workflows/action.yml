@@ -26,6 +26,15 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/express-app:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/express-app:${{github.sha}}
+
+      - name: Deploy to Railway
+        uses: bervProject/railway-deploy@main
+        env:
+          RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
+        with:
+          service: express-app
+        
+        
           
           
