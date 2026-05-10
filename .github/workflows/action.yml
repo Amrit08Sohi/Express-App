@@ -28,12 +28,13 @@ jobs:
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/express-app:${{github.sha}}
 
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
       - name: Deploy to Railway
-        uses: bervProject/railway-deploy@main
+        run: railway up --service express-app
         env:
           RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
-        with:
-          service: express-app
         
         
           
