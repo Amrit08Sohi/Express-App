@@ -26,15 +26,17 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/express-app:${{github.sha}}
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/express-app:${{github.run_number}}
 
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
       - name: Deploy to Railway
-        run: railway up --service express-app
+        run: |
+           railway whoami
+           railway up --service express-app
         env:
-          RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         
         
           
