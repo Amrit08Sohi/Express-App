@@ -3,7 +3,7 @@ import express  from "express";
 const app = new express()
 
 app.get("/", (req, res) => {
-    return res.json({message: "Hello from express"})
+    return res.json({message: "Hello from Amrit"})
 })
 
 app.listen(8000, () => {
